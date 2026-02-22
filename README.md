@@ -1,146 +1,143 @@
-# Lab: Inheritance, Class Attributes, and Class Methods- Music Library System
+# Music Library System Lab
+## Learning Goals
 
-Now that you’ve delved into creating class attributes and methods it is time to put these concepts to the test. In this lab our focus will be on a song class that will include several class attributes and methods.
+- Build Python classes to encapsulate real-world entities.
 
-## The Scenario
+- Use instance attributes for individual object data.
 
-Imagine you've just landed a role as a junior software engineer at MusicTech Innovations, a cutting-edge company that powers a popular music streaming service. Your first project involves enhancing the company's music library system. The goal is to design a Python class that encapsulates the essential properties and behaviors of a song, making it easier for the team to manage and analyze the vast collection of tracks.
-<br />
-You're tasked with creating a Song class that not only represents individual songs with attributes like name, artist, and genre but also maintains global insights. For example, your class will keep track of the total number of songs, list all unique artists and genres, and even count how many songs belong to each genre and artist. This functionality is critical for features like personalized recommendations and data analytics.
+- Use class attributes to track global insights across all objects.
 
-## Tools & Resources
+- Implement class methods to manipulate class-level data.
 
-* [GitHub Repo](https://github.com/learn-co-curriculum/python-music-library-system-lab)
-* [Python Documentation](https://docs.python.org/3/)
-* [Classes - Python](https://docs.python.org/3/)
-* [Python Class Attributes: An Overly Thorough Guide - Toptal](https://www.toptal.com/python/python-class-attributes-an-overly-thorough-guide)
-* [Python's Instance, Class, and Static Methods Demystified - Real Python](https://realpython.com/instance-class-and-static-methods-demystified/)
-* [The Factory Method Pattern and Its Implementation in Python - Real Python](https://realpython.com/factory-method-python/)
+- Apply OOP principles for scalable data tracking and analytics.
 
-## Instructions
+## Introduction
 
-### Setup
+In this lab, you will create a Music Library System to manage and analyze a collection of songs. Each song will have attributes like name, artist, and genre. The system also keeps track of global statistics: the total number of songs, all unique artists and genres, and counts of songs per artist and genre. This functionality simulates features found in music streaming services, including analytics and recommendation engines.
 
-Before we begin coding, let's complete the initial setup for this lesson: 
-* Fork and Clone 
-  * Go to the provided GitHub repository link.
-  * Fork the repository to your GitHub account.
-  * Clone the forked repository to your local machine.
-* Open and Run File
-  * Open the project in VSCode.
-  * Run npm install to install all necessary dependencies.
+## Setup Instructions
+- Fork and Clone the Repository
 
-### Task 1: Define the Problem
+- Go to the provided GitHub repository link.
 
-Build a song class. As a user, one should be able to:
-* Build a song object
-* See information about all songs
-* Use methods that will add to the songs
+- Fork the repository to your GitHub account.
 
-### Task 2: Determine the Design
+- Clone the forked repository to your local machine:
 
-* Song
-  * Attributes
-    * name
-    * artist
-    * genre
-  * Class Attributes
-    *  count
-    *  genres
-    *  artists
-    *  genre_count
-    *  artists_count
-  * Class Methods
-    * add_song_to_count
-    * add_to _genres
-    * add_to_artists
-    * add_to_genre_count
-    * add_to_artists_count
+. git clone <repo-url>
+. cd course-7-module-2-python-music-library-system-lab
 
-### Task 3: Develop, Test, and Refine the Code
+. Install Dependencies
 
-#### Step 1: Create a Feature Branch
+. Ensure Python is installed:
 
-```bash
-git checkout -b [name of branch]
-```
+. python --version
 
-#### Step 2: Create song class
+- Run tests with pytest:
 
-* ```__init__```:
-  * name
-  * artist
-  * genre
-* Class Attributes:
-  * We need our Song class to be able to keep track of the number of songs that it creates
-  * We need our Song class to be able to show us all of the artists of existing songs
-  * We need our Song class to be able to show us all of the genres of existing songs
-  * We also need our Song class to be able to keep track of the number of songs of each genre it creates
-  * Ex:
-    * {"Rap": 5, "Rock": 1, "Country": 3}
-  * Lastly, we want our Song class to reveal to us the number of songs each artist is responsible for
-  * Ex:
-    * {"Beyonce": 17, "Jay-Z": 40}
-  * count
-  * genres
-  * artists
-  * genre_count
-  * artists_count
+pytest
 
-#### Step 3: Class methods
+### Task 1: Define the Song Class
+- Instance Attributes
 
-* Each of the class methods should trigger upon the new song being created.
-* add_song_to_count
-  * Increments the value of count by one
-* add_to _genres
-  * Adds any new genres to a class attribute genres
-  * Ensure there are only unique genres - no duplicates!
-* add_to_artists
-  * Adds any new artistes to a class attribute artists
-  * Ensure there are only unique artists - no duplicates!
-* add_to_genre_count
-  * Updates class attribute genre_count
-  * Increments genre key by 1, if genre doesn’t exist in genre_count add the key and set it to 1
-* add_to_artists_count
-  * Updates class attribute artists_count
-  * Increments artists key by 1, if artist doesn’t exist in artists_count add the key and set it to 1
+Each Song object should store:
 
-#### Step 4: Push feature branch and open a PR on GitHub
+name – the name of the song
 
-* Push the branch to GitHub
-* Create a Pull Request (PR) on GitHub.
+artist – the artist of the song
 
-#### Step 5: Merge to main
+genre – the genre of the song
 
-* Merge the PR into main after review.
-* Pull the new merged main branch locally and delete merged feature branch (optional)
+- Class Attributes
 
-### Task 4: Document and Maintain
+The Song class also keeps track of:
 
-Best Practice documentation steps:
+count – total number of songs created
 
-* Add comments to code to explain purpose and logic
-* Clarify intent / functionality of code to other developers
-* Add screenshot of completed work included in Markdown in README.
-* Update README text to reflect the functionality of the application following https://makeareadme.com. 
-* Delete any stale branches on GitHub
-* Remove unnecessary/commented out code
-* If needed, update git ignore to remove sensitive data
+genres – list of unique genres
 
-## Save your work and push to GitHub
+artists – list of unique artists
 
-Before you submit your solution, you need to save your progress with git.
-1. Add your changes to the staging area by executing ```git add ```.
-2. Create a commit by executing ```git commit -m "Your commit message"```
-3. Push your commits to GitHub by executing ```git push origin main``` or ```git push origin master```, depending on the name of your branch (use ```git branch``` to check on which branch you are).
+genre_count – dictionary counting songs per genre
 
-## Submission and Grading Criteria
+artist_count – dictionary counting songs per artist
 
-1. Use the rubric in Canvas as a guide for how this lab is graded.
-2. Your submission will be automatically scored in CodeGrade, using the most recent commit. Remember to make sure you have pushed your commit to GitHub before submitting your assignment. 
-3. You can review your submission in CodeGrade and see your final score in your Canvas gradebook.
-4. When you are ready to submit, click the ***Load Lab: Object Oriented Programming (OOP)- Part 1- Bookstore*** button in Canvas to launch CodeGrade.
-  * Click on + Create Submission. Connect your repository for this lab.
-  * For additional information on submitting assignments in CodeGrade: [Getting Started in Canvas](https://help.codegrade.com/for-students/getting-started/getting-started-in-canvas)
+- Class Methods
+
+Each method is triggered when a new song is created:
+
+add_song_to_count() – increments count by 1
+
+add_to_genres() – adds the genre to genres if not already present
+
+add_to_artists() – adds the artist to artists if not already present
+
+add_to_genre_count() – increments genre count or initializes it to 1
+
+add_to_artist_count() – increments artist count or initializes it to 1
+
+### Task 2: Implement Initialization
+
+In song.py:
+
+class Song:
+    count = 0
+    genres = []
+    artists = []
+    genre_count = {}
+    artist_count = {}
+
+    def __init__(self, name, artist, genre):
+        self.name = name
+        self.artist = artist
+        self.genre = genre
+
+        Song.count += 1
+        Song.add_to_genres(genre)
+        Song.add_to_artists(artist)
+        Song.add_to_genre_count(genre)
+        Song.add_to_artist_count(artist)
+
+### Task 3: Push Feature Branch & Open PR
+
+Create a feature branch:
+
+git checkout -b song-class
 
 
+Commit changes:
+
+git add song.py
+git commit -m "Add Song class with analytics"
+
+
+Push branch to GitHub:
+
+git push origin song-class
+
+
+Open a Pull Request from song-class to main.
+
+Merge after review.
+
+### Task 4: Best Practices
+
+Use clear docstrings and comments.
+
+Ensure class attributes are updated via class methods.
+
+Maintain consistent naming for class attributes (artist_count, genre_count).
+
+Keep tests passing using pytest before merging.
+
+## Conclusion
+
+By completing this lab, you will:
+
+1. Master class and instance attributes in Python.
+
+2. Track and aggregate data across objects with class attributes.
+
+3. Build scalable analytics for a music library.
+
+4. Apply OOP techniques that reflect real-world software engineering practices.
